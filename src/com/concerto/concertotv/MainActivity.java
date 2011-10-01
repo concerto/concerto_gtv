@@ -13,13 +13,6 @@ public class MainActivity extends Activity {
 
   WebView mWebView;
 
-  public String macAddress() {
-    WifiManager wifiMan = (WifiManager) this
-        .getSystemService(Context.WIFI_SERVICE);
-    WifiInfo wifiInf = wifiMan.getConnectionInfo();
-    return wifiInf.getMacAddress();
-  }
-
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +26,7 @@ public class MainActivity extends Activity {
         getString(R.string.pref_file), 0);
     String base_url = settings.getString("base_url",
         getString(R.string.default_base_url));
-    String mac_addr = settings.getString("mac_address", macAddress());
+    String mac_addr = settings.getString("mac_address", ConcertoTV.macAddress(this.getApplicationContext()));
 
     String concerto_url;
     concerto_url = base_url + "?mac=" + mac_addr;
