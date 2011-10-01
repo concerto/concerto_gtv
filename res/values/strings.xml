@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Concerto</string>
+    <string name="pref_file">concerto_prefs</string>
+    <string name="default_base_url">http://concerto.rpi.edu/</string>
+</resources>
