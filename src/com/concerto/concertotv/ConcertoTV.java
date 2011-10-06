@@ -32,6 +32,13 @@ public class ConcertoTV {
     return editor.commit();
   }
   
+  public static boolean stopFirstRun(Context context){
+    SharedPreferences settings = ConcertoTV.getSettings(context);
+    Editor editor = settings.edit();
+    editor.putBoolean("first_run", false);
+    return editor.commit();
+  }
+  
   public static String getMac(Context context){
     SharedPreferences settings = ConcertoTV.getSettings(context);
     String mac =  settings.getString("mac_address", ConcertoTV.macAddress(context));

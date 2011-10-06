@@ -35,10 +35,10 @@ public class SettingsActivity extends Activity {
   }
   
   public void onPause(){
-    super.onPause();
-    if(dialog.isShowing()){
+    if(dialog != null && dialog.isShowing()){
       dialog.dismiss();
     }
+    super.onPause();
   }
   
   public void loadSettings(){
@@ -66,11 +66,11 @@ public class SettingsActivity extends Activity {
   
   public void cancel(View view){
     loadSettings();
+    ConcertoTV.stopFirstRun(getApplicationContext());
     loadMain(view);
   }
   public void loadMain(View view){
     Intent mainIntent = new Intent(view.getContext(), MainActivity.class);
-    //mainIntent.removeCategory("android.intent.category.LAUNCHER");
     startActivity(mainIntent);
   }
 }
