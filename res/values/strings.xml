@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Concerto</string>
     <string name="pref_file">concerto_prefs</string>
-    <string name="default_base_url">http://concerto.rpi.edu/</string>
+    <string name="default_base_url">http://tv.concerto-signage.org/</string>
     <string name="host_prompt">Concerto URL:</string>
     <string name="mac_prompt">MAC Address:</string>
     <string name="save_prompt">Save</string>
