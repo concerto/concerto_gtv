@@ -21,6 +21,8 @@ public class MainActivity extends Activity {
 
     mWebView = (WebView) findViewById(R.id.webview);
     mWebView.getSettings().setJavaScriptEnabled(true);
+    mWebView.getSettings().setBuiltInZoomControls(false);
+    mWebView.setInitialScale(100);
     mWebView.loadUrl(ConcertoTV.getURL(getApplicationContext(), metrics));
   }
   
