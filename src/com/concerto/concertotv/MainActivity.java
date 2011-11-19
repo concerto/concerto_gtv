@@ -17,17 +17,7 @@ public class MainActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
-    DisplayMetrics metrics = new DisplayMetrics();
-    getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
-    String server = ConcertoTV.getBaseURL(getApplicationContext());
-    if (server.equals(getString(R.string.default_base_url))) {
-      server = "Concerto TV Server";
-    }
-    final ProgressDialog dialog = ProgressDialog.show(this, "Loading",
-        "Connecting to:\n" + server);
-
+    
     mWebView = (WebView) findViewById(R.id.webview);
     mWebView.setBackgroundColor(android.graphics.Color.BLACK);
 
@@ -35,6 +25,13 @@ public class MainActivity extends Activity {
     mWebView.getSettings().setBuiltInZoomControls(false);
     mWebView.setInitialScale(100);
 
+    String server = ConcertoTV.getBaseURL(getApplicationContext());
+    if (server.equals(getString(R.string.default_base_url))) {
+      server = "Concerto TV Server";
+    }
+    final ProgressDialog dialog = ProgressDialog.show(this, "Loading",
+        "Connecting to:\n" + server);
+    
     mWebView.setWebChromeClient(new WebChromeClient() {
       @Override
       public void onProgressChanged(WebView view, int progress) {
@@ -44,7 +41,19 @@ public class MainActivity extends Activity {
         }
       }
     });
+  }
+  
+  public void onStart(){
+    super.onStart();
+    DisplayMetrics metrics = new DisplayMetrics();
+    getWindowManager().getDefaultDisplay().getMetrics(metrics);
+    
     mWebView.loadUrl(ConcertoTV.getURL(getApplicationContext(), metrics));
+  }
+  
+  public void onStop(){
+    mWebView.loadUrl("about:blank");
+    super.onStop();
   }
   
   @Override
