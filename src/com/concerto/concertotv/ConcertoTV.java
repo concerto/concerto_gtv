@@ -5,13 +5,21 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.provider.Settings.Secure;
 import android.util.DisplayMetrics;
 
 public class ConcertoTV {
   public static String macAddress(Context context){
     WifiManager wifiMan = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     WifiInfo wifiInf = wifiMan.getConnectionInfo();
-    return wifiInf.getMacAddress();
+    String mac = wifiInf.getMacAddress();
+    // If the mac address is null, return something that is workable.
+    if (mac == null){
+      String uniqueId = Secure.getString(context.getContentResolver(), Secure.ANDROID_ID);
+      // We hope the last 9 chars are sufficiently unique.
+      mac = "001" + uniqueId.substring(0, 9);
+    }
+    return mac;
   }
   
   public static String getURL(Context context, DisplayMetrics metrics){
