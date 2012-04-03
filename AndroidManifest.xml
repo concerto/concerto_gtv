@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.concerto.concertotv"
-      android:versionCode="2"
-      android:versionName="0.1.1">
-    <uses-sdk android:minSdkVersion="12"/>
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
-    <uses-feature android:name="com.google.android.tv" android:required="true"/>
+    package="com.concerto.concertotv"
+    android:versionCode="3"
+    android:versionName="0.2.0" >
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".MainActivity"
-                  android:label="@string/app_name" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
-        </activity>
-        <activity android:name=".SettingsActivity"
-                  android:label="@string/app_name" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+    <uses-sdk android:minSdkVersion="10" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Concerto.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="goto.your-concerto.com"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="concerto" />
+            </intent-filter>
         </activity>
-		
     </application>
+
 </manifest>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Concerto" parent="android:Theme.Black"></style>
+    <style name="Theme.Concerto.NoTitleBar" parent="android:Theme.Black.NoTitleBar"></style>
+    <style name="Theme.Concerto.Fullscreen" parent="android:Theme.Black.NoTitleBar.Fullscreen"></style>
+</resources>

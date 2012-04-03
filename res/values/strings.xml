@@ -3,9 +3,10 @@
     <string name="app_name">Concerto</string>
     <string name="pref_file">concerto_prefs</string>
     <string name="default_base_url">http://tv.concerto-signage.org/</string>
-    <string name="host_prompt">Concerto URL:</string>
-    <string name="mac_prompt">MAC Address:</string>
-    <string name="save_prompt">Save</string>
-    <string name="cancel_prompt">Cancel</string>
-    <string name="firstrun_cancel_prompt">Skip</string>
+    <string name="server_menu">Change Server</string>
+    <string name="sample_url">http://your-concerto.com</string>
+    <string name="server_prompt">Concerto Server:</string>
+    <string name="identifier_menu">Change MAC</string>
+    <string name="identifier_prompt">MAC Address:</string>
+    <string name="sample_identifier">01:23:45:67:89:AB</string>
 </resources>
