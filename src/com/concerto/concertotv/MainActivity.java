@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
     mWebView.setBackgroundColor(android.graphics.Color.BLACK);
 
     mWebView.getSettings().setJavaScriptEnabled(true);
+    mWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
     mWebView.getSettings().setBuiltInZoomControls(false);
     mWebView.setInitialScale(100);
 
