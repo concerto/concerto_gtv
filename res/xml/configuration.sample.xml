@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Configuration override file.  Use this if you want to hard-code screen configuration.
+Rename this to configuration.xml for configuration overrides to take effect.
+-->
+<configuration>
+  <server>
+      <endpoint>
+          <version>2</version>
+          <url>http://nightly.concerto-signage.org/</url>
+      </endpoint>
+      <client>
+        <!--
+          MAC address override for Concerto V1 systems.
+        -->
+        <mac></mac>
+        <!--
+          Concerto 2 screen ID
+          Source: https://github.com/concerto/concerto/wiki/Concerto-Frontend
+        -->
+        <screen-id></screen-id>
+        <!--
+          Specifies the screen authentication method for Concerto 2.
+          This value is ignored if the player is talking to a Concerto 1 server.
+
+          Possible values:
+            temptoken - uses temporary token authentication:
+              https://github.com/concerto/concerto/wiki/Authentication
+            screenid - uses screen id
+              https://github.com/concerto/concerto/wiki/Concerto-Frontend
+        -->
+        <authorization>temptoken</authorization>
+      </client>
+  </server>
+  <player>
+    <!-- Disable configuration menu. -->
+    <disable-configuration>1</disable-configuration>
+    <!--
+      Start at device boot.
+      Requires permissions block in AndroidManifest.xml to be uncommented for this option to take effect.
+    -->
+    <autostart>0</autostart>
+  </player>
+</configuration>
